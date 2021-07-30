@@ -3,6 +3,8 @@ const fastify = require('fastify')({ logger: true });
 const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = new Sequelize('postgres://user:password123@127.0.0.1:5432/postgres');
 
+// https://stackoverflow.com/questions/25540711/docker-postgres-pgadmin-local-connection
+
 const User = require('./models/User')(sequelize, DataTypes);
 
 // const User = sequelize.define('User', {
