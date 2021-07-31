@@ -1,20 +1,23 @@
-module.exports = (sequelize, DataTypes) => {
-    const User = sequelize.define('User', {
+const { DataTypes } = require('sequelize')
+module.exports = (fastify, options, done) => {
+    const User = fastify.db.define('User', {
         // Model attributes are defined here
         email: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
+            unique: true
         },
         username: {
-            type: DataTypes.STRING(25)
+            type: DataTypes.STRING(25),
+            allowNull: false,
+            unique: true
         },
         password: {
-            type: DataTypes.STRING
-        },
-        stream_key: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            allowNull: false
         },
     }, {
         // Other model options go here
     });
+    done()
 }
