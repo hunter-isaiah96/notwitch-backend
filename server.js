@@ -35,6 +35,9 @@ fastify.register(require('fastify-jwt'), {
     secret: 'supersecret'
 });
 
+fastify.register(require('fastify-cors'), {
+});
+
 const start = async () => {
     try {
         await fastify.listen(3000);
